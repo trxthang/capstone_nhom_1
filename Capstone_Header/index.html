@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./styles/index.css"> <!-- Link Css -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap');
+    </style>
+
+    <!-- script của Thắng -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- SLICK -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css"
+        integrity="sha512-wR4oNhLBHf7smjy0K4oqzdWumd+r5/+6QO/vDda76MW5iug4PT7v86FoEkySIJft3XA0Ae6axhIvHrqwm793Nw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css"
+        integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.umd.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+</head>
+
+<body>
+    <!-- ======== Header  ========  -->
+    <header class="navbar-container">
+        <div class="navbar-content">
+            <a href="./index.html" class="logo">
+                <span class="logo-icon">
+                    <img src="./images/logo-icon.png" alt="Solid logo" width="28" height="28">
+                </span>
+                <span class="logo-text">Solid</span>
+            </a>
+
+            <nav class="main-nav">
+                <a href="./index.html" class="nav-link active">Home</a>
+                <a href="#" class="nav-link">Features</a>
+                <a href="#" class="nav-link">Blog</a>
+                <a href="#" class="nav-link">Docs</a>
+
+                <div class="dropdown" id="pagesDropdown">
+                    <a href="#" class="nav-link dropdown-toggle">
+                        Pages <span class="arrow-down">▼</span>
+                    </a>
+
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">Blog Grid</a>
+                        <a href="./auth/signin.html" class="dropdown-item">Sign In</a>
+                        <a href="./auth/signup.html" class="dropdown-item">Sign Up</a>
+                        <a href="#" class="dropdown-item">Docs</a>
+                        <a href="#" class="dropdown-item">Support</a>
+                        <a href="#" class="dropdown-item">404</a>
+                    </div>
+                </div>
+
+                <a href="#" class="nav-link">Support</a>
+            </nav>
+
+            <div class="login-btn">
+                <span class="icon-btn search-icon" title="Search"><i class="fa-solid fa-magnifying-glass"></i></span>
+                <span class="icon-btn theme-icon" title="Toggle theme" id="themeToggle">🌙</span>
+
+                <a href="./auth/signin.html" class="btn sign-in-btn">Sign In</a>
+                <a href="./auth/signup.html" class="btn sign-up-btn">Sign Up</a>
+            </div>
+        </div>
+    </header>
+    <!-- Bảng Searchingg -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-box">
+            <div class="search-input-container">
+                <span class="search-icon-lg"><i class="fa-regular fa-sun"></i></span>
+                <input type="text" placeholder="Search Entire Site | Products, Docs, Pages ..." class="search-input">
+            </div>
+
+            <div class="search-results">
+                <a href="#" class="result-item doc-result">
+                    <span class="result-title">Using Tailwind Templates</span>
+                    <span class="result-url">docs: https://solid.nextjstemplates.com/docs/tailwind-template</span>
+                </a>
+
+                <a href="#" class="result-item doc-result">
+                    <span class="result-title">Using Tailwind Components</span>
+                    <span class="result-url">docs: https://solid.nextjstemplates.com/docs/tailwind-component</span>
+                </a>
+
+                <a href="#" class="result-item doc-result">
+                    <span class="result-title">Style Guide</span>
+                    <span class="result-url">docs: https://solid.nextjstemplates.com/docs/style-guide</span>
+                </a>
+
+                <a href="#" class="result-item blog-result">
+                    <div class="blog-thumbnail-container">
+                        <div class="blog-thumbnail-placeholder"></div>
+                    </div>
+                    <div class="blog-content">
+                        <span class="result-title">UI/UX design allows companies to establish a unique and recognizable
+                            brand identity</span>
+                        <span class="result-url">blog: https://solid.nextjstemplates.com/blog/...</span>
+                    </div>
+                </a>
+
+                <a href="#" class="result-item blog-result">
+                    <div class="blog-thumbnail-container">
+                        <div class="blog-thumbnail-placeholder"></div>
+                    </div>
+                    <div class="blog-content">
+                        <span class="result-title">Tips to quickly improve your coding speed in 2025 by Traversy
+                            media</span>
+                        <span class="result-url">blog: https://solid.nextjstemplates.com/blog/...</span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ======== Section  ========  -->
+    <main>
+        <section class="section">
+            <div class="section-content-container">
+                <div class="section-text-content">
+                    <p class="section-sub-title">
+                        <span class="sub-title-icon">🔥</span>
+                        Solid - A Complete SaaS Starter Template for SaaS
+                    </p>
+
+                    <h1 class="section-main-title">
+                        Robust SaaS Boilerplate <br> and Starter for Next.js
+                    </h1>
+
+                    <p class="section-description">
+                        Packed with all the key integrations you need for swift SaaS startup launch,
+                        including - Authentication, Database, Sanity Blog, Essential UI Components,
+                        Business Pages and More. Built-winth - Next.js, React 18 and TypeScript.
+                    </p>
+
+                    <a href="./auth/signup.html" class="btn primary-btn get-started-btn">Get Started</a>
+                </div>
+
+                <div class="section-image-container">
+                    <img src="./images/section-light.png" alt="SaaS Dashboard Illustration" class="section-illustration"
+                        id="sectionIllustration" data-light-src="./images/section-light.png"
+                        data-dark-src="./images/section-dark.png">
+                    <div class="decoration-dots"></div>
+                    <div class="decoration-shape-1"></div>
+                    <div class="decoration-shape-2"></div>
+                </div>
+            </div>
+        </section>
+        <hr class="hr-style">
+        <section class="section-client-logo">
+            <div class="logo-container">
+                <img src="./images/logo/Logitech_logo.png" alt="Logitech Logo" class="client-logo">
+                <img src="./images/logo/Dropcam_logo.svg.png" alt="Dropcam Logo" class="client-logo">
+                <img src="./images/logo/AMD.png" alt="AMD Logo" class="client-logo">
+                <img src="./images/logo/Nike.png" alt="Nike Logo" class="client-logo">
+                <img src="./images/logo/Mandiri.png" alt="Mandiri Logo" class="client-logo">
+                <img src="./images/logo/Amazon.png" alt="Amazon Logo" class="client-logo">
+            </div>
+        </section>
+        <hr class="hr-style">
+    </main>
+    <!-- ======== Features  ========  -->
+    <main class="content-section" id="features">
+        <div class="features-header">
+            <span class="tag">SOLID FEATURES</span>
+            <h1>Core Features of Solid</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae rutrum lacus. Phasellus aliquam ante
+                in maximus.</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fa-solid fa-chart-bar"></i>
+                </div>
+                <h2>Crafted for SaaS</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. in convallis tortor.</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fa-solid fa-layer-group"></i>
+                </div>
+                <h2>High-quality Design</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. in convallis tortor.</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fa-solid fa-file-code"></i>
+                </div>
+                <h2>Next.js + TypeScript</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. in convallis tortor.</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fa-regular fa-clock"></i>
+                </div>
+                <h2>Sanity Blog and Docs</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. in convallis tortor.</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fa-solid fa-database"></i>
+                </div>
+                <h2>DB, Auth and Stripe</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. in convallis tortor.</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fa-solid fa-rotate"></i>
+                </div>
+                <h2>Regular Free Updates</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. in convallis tortor.</p>
+            </div>
+
+        </div>
+    </main>
+
+<!-- ======== Features 2 ========  -->
+    <section class="section feature-detail-section">
+        <div class="section-content-container">
+            <div class="detail-image-container">
+                <img src="./images/feature-light.png" alt="SaaS Dashboard Mockup"
+                    class="detail-illustration" id="detailIllustration"
+                    data-light-src="./images/feature-light.png"
+                    data-dark-src="./images/feature-dark.png">
+            </div>
+
+            <div class="detail-text-content">
+                <span class="detail-tag">NEW</span>
+                <p class="detail-sub-title">SAAS BOILERPLATE FOR NEXT.JS</p>
+
+                <h2 class="detail-main-title">A Complete Solution for SaaS Startup</h2>
+
+                <p class="detail-description">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ultricies lacus
+                    non fermentum ultrices. Fusce consectetur ie.
+                </p>
+
+                <ul class="detail-list">
+                    <li class="list-item">
+                        <span class="item-number">01</span>
+                        <div class="item-content">
+                            <h3>Mailchimp for Newsletter Emails + SMTP for Transactional Emails</h3>
+                            <p>Ut ultricies lacus non fermentum ultrices.</p>
+                        </div>
+                    </li>
+                    <li class="list-item">
+                        <span class="item-number">02</span>
+                        <div class="item-content">
+                            <h3>Algolia Integration for Site Search</h3>
+                            <p>consectetur adipiscing elit fermentum ultricies.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+<!-- ======== Features 3 ========  -->
+    <section class="section integration-section">
+    <div class="section-content-container">
+        <div class="integration-text-content">
+            <p class="section-sub-title">LAUNCH YOUR SAAS FAST</p>
+            <h2 class="section-main-title">Packed with All Essential Integrations</h2>
+            <p class="section-description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ultricies lacus non fermentum ultrices. Fusce consectetur ie.
+            </p>
+            <a href="#" class="know-more-btn">
+                Know More 
+                <span class="arrow">→</span>
+            </a>
+        </div>
+        
+        <div class="integration-image-container">
+            <img 
+                id="integrationIllustration"
+                class="section-illustration" 
+                src="./images/integration-light.png" 
+                data-light-src="./images/integration-light.png" 
+                data-dark-src="./images/integration-dark.png"
+                alt="Audience Overview Chart Illustration"
+            />
+        </div>
+    </div>
+</section>
+
+<!-- ======== Features 4 ========  -->
+<section class="section counter-section">
+    <div class="counter-content-box">
+        <div class="counter-illustration-top">
+            <img 
+                id="counterIllustration"
+                src="./images/ballon.png" 
+                data-light-src="./images/ballon.png" 
+                data-dark-src="./images/ballon.png"
+                alt="3D Figure holding balloons"
+                class="counter-ballon-img"
+            />
+        </div>
+
+        <div class="counter-text-content">
+            <h2 class="counter-main-title">Trusted by Global Companies.</h2>
+            <p class="counter-description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor eros.
+                Donec vitae tortor lacus. Phasellus aliquam ante in maximus.
+            </p>
+
+            <div class="counter-stats-grid">
+                <div class="stat-item">
+                    <p class="stat-number">500K</p>
+                    <p class="stat-label">World Wide Clients</p>
+                </div>
+                <div class="stat-item">
+                    <p class="stat-number">1M+</p>
+                    <p class="stat-label">Downloads</p>
+                </div>
+                <div class="stat-item">
+                    <p class="stat-number">865</p>
+                    <p class="stat-label">Winning Award</p>
+                </div>
+            </div>
+            <img 
+                id="counterWave"
+                src="./images/QuizMaker.png" 
+                data-light-src="./images/QuizMaker-light.png" 
+                data-dark-src="./images/QuizMaker-dark.png"
+                alt="Decorative wave"
+                class="counter-wave-img"
+            />
+        </div>
+    </div>
+</section>
+
+<!-- ======== Features 5 ========  -->
+ <section class="app-connections-section">
+    <div class="container">
+        <div class="app-connections-header">
+            <span class="app-connections-tag">Integrations</span> 
+            <h2>Packed with all the key integrations you need</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor eros. Donec vitae tortor lacus. Phasellus aliquam ante in maximus.</p>
+        </div>
+
+        <div class="app-connections-grid">
+            <div class="dot-pattern"></div>
+
+            <div class="icon-wrapper icon-docker">
+                <img src="./images/docker.png" alt="Docker Logo">
+            </div>
+            <div class="icon-wrapper icon-github">
+                <img src="./images/github.png" alt="Github Logo">
+            </div>
+            <div class="icon-wrapper icon-js">
+                <img src="./images/JS.png" alt="JS Logo">
+            </div>
+            <div class="icon-wrapper icon-discord">
+                <img src="./images/discord.png" alt="Discord Logo">
+            </div>
+            <div class="icon-wrapper icon-solid">
+                <img src="./images/solid.png" alt="Solid Logo">
+            </div>
+            <div class="icon-wrapper icon-vast">
+                <img src="./images/Vast.png" alt="Vast Logo">
+            </div>
+
+            <span class="color-dot dot-green"></span>
+            <span class="color-dot dot-orange"></span>
+            <span class="color-dot dot-yellow"></span>
+            <span class="color-dot dot-blue"></span>
+
+        </div>
+    </div>
+</section>
+
+    <!-- Link script -->
+    <script src="./js/script.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dropdown = document.getElementById('pagesDropdown');
+            dropdown.addEventListener('click', function (event) {
+                this.classList.toggle('active');
+                event.stopPropagation();
+            });
+
+            document.addEventListener('click', function () {
+                if (dropdown.classList.contains('active')) {
+                    dropdown.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
